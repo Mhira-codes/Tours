@@ -10,8 +10,10 @@ const [loading, setLoading] = useState(true);
 const [tourData,   setTourData] = useState([]);
 
 const removeTour =(id) =>{
-  const newTour = tourData.filter((tourItem)=> tourItem.id !== id)
+  const newTour = tourData.filter((eachtour)=> eachtour.id !== id);
+  setTourData(newTour)
 }
+
 
 
 
@@ -45,10 +47,18 @@ if(loading){
     </div>
   );
 }
+
+if(tourData.length === 0){
+  <main>
+    <h2>No Tour left</h2>
+    <button onClick={()=> fetchData()}>refresh</button>
+  </main>
+}
+
   return(
   
     <div>
-      <Tours tourData={tourData}/>
+      <Tours tourData={tourData} removeTour={removeTour}/>
     </div>
   )
 
