@@ -1,7 +1,7 @@
 import React from "react";
 import Tour from "./Tour";
 
-const Tours = ({ tourData }) => {
+const Tours = ({ tourData, removeTour }) => {
   // console.log(tourData)
   return (
     <section className="bg-purple-50 w-full min-h-screen">
@@ -12,12 +12,12 @@ const Tours = ({ tourData }) => {
       </div>
       <div>
         {tourData.map((tourItem) => {
-        return <Tour key={tourItem.id} {...tourItem}></Tour>
+        return <Tour key={tourItem.id} {...tourItem} removeTour={removeTour}></Tour>
      
         })}
       </div>
     </section>
   );
 };
-
+     
 export default Tours;
